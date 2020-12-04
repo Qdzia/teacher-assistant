@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/welcomeScreen"
-        android:name="com.example.teacherassistant.WelcomeScreen"
+        android:name="com.example.teacherassistant.view.WelcomeScreen"
         android:label="fr_welcome_screen"
         tools:layout="@layout/fr_welcome_screen" >
         <action
@@ -22,17 +22,17 @@
     </fragment>
     <fragment
         android:id="@+id/courseList"
-        android:name="com.example.teacherassistant.CourseList"
+        android:name="com.example.teacherassistant.view.CourseList"
         android:label="fr_course_list"
         tools:layout="@layout/fr_course_list" />
     <fragment
         android:id="@+id/studentList"
-        android:name="com.example.teacherassistant.StudentList"
+        android:name="com.example.teacherassistant.view.StudentList"
         android:label="fr_student_list"
         tools:layout="@layout/fr_student_list" />
     <fragment
         android:id="@+id/report"
-        android:name="com.example.teacherassistant.Report"
+        android:name="com.example.teacherassistant.view.Report"
         android:label="fr_report"
         tools:layout="@layout/fr_report" />
 </navigation>

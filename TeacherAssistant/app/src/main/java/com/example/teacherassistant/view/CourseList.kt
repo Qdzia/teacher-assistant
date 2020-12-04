@@ -1,14 +1,13 @@
-package com.example.teacherassistant
+package com.example.teacherassistant.view
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.findNavController
-import kotlinx.android.synthetic.main.fr_welcome_screen.*
+import com.example.teacherassistant.R
 
-class Report : Fragment() {
+class CourseList : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -18,12 +17,14 @@ class Report : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fr_report, container, false)
+        return inflater.inflate(R.layout.fr_course_list, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
     }
 
-    companion object { fun newInstance()=WelcomeScreen()}
+    companion object { fun newInstance()=
+        WelcomeScreen()
+    }
 }

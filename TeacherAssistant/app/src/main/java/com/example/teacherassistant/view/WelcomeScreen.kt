@@ -1,4 +1,4 @@
-package com.example.teacherassistant
+package com.example.teacherassistant.view
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.findNavController
+import com.example.teacherassistant.R
 import kotlinx.android.synthetic.main.fr_welcome_screen.*
 
 class WelcomeScreen : Fragment() {
@@ -34,5 +35,7 @@ class WelcomeScreen : Fragment() {
         }
     }
 
-    companion object { fun newInstance()=WelcomeScreen()}
+    companion object { fun newInstance()=
+        WelcomeScreen()
+    }
 }
