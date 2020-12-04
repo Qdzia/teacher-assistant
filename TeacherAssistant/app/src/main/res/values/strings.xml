@@ -1,11 +1,13 @@
 <resources>
     <string name="app_name">Teacher Assistant</string>
-<!--Welcome Screen-->
+    <!--Welcome Screen-->
     <string name="welcome_screen_title">Teacher Assistant</string>
     <string name="welcome_screen_subtitle">Manage your courses with ease</string>
     <string name="welcome_screen_to_courses">Courses</string>
     <string name="welcome_screen_to_students">Students</string>
     <string name="welcome_screen__to_report">Report</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
 </resources>

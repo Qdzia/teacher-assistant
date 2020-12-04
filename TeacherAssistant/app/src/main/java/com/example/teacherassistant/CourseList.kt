@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.navigation.findNavController
 import kotlinx.android.synthetic.main.fr_welcome_screen.*
 
-class WelcomeScreen : Fragment() {
+class CourseList : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -18,20 +18,11 @@ class WelcomeScreen : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fr_welcome_screen, container, false)
+        return inflater.inflate(R.layout.fr_course_list, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        toCoursesListButton.setOnClickListener {
-                view->view.findNavController().navigate(R.id.action_welcomeScreen_to_courseList)
-        }
-        toStudentsListButton.setOnClickListener {
-                view->view.findNavController().navigate(R.id.action_welcomeScreen_to_studentList)
-        }
-        toReportButton.setOnClickListener {
-                view->view.findNavController().navigate(R.id.action_welcomeScreen_to_report)
-        }
     }
 
     companion object { fun newInstance()=WelcomeScreen()}
