@@ -11,9 +11,6 @@ import kotlinx.android.synthetic.main.fr_welcome_screen.*
 
 class WelcomeScreen : Fragment() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

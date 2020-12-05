@@ -29,10 +29,23 @@
         android:id="@+id/studentList"
         android:name="com.example.teacherassistant.view.StudentList"
         android:label="fr_student_list"
-        tools:layout="@layout/fr_student_list" />
+        tools:layout="@layout/fr_student_list" >
+        <action
+            android:id="@+id/action_studentList_to_addStudent"
+            app:destination="@id/addStudent" />
+    </fragment>
     <fragment
         android:id="@+id/report"
         android:name="com.example.teacherassistant.view.Report"
         android:label="fr_report"
         tools:layout="@layout/fr_report" />
+    <fragment
+        android:id="@+id/addStudent"
+        android:name="com.example.teacherassistant.view.AddStudent"
+        android:label="fr_add_student"
+        tools:layout="@layout/fr_add_student" >
+        <action
+            android:id="@+id/action_addStudent_to_studentList"
+            app:destination="@id/studentList" />
+    </fragment>
 </navigation>

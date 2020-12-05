@@ -9,10 +9,6 @@ import com.example.teacherassistant.R
 
 class CourseList : Fragment() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -20,11 +16,7 @@ class CourseList : Fragment() {
         return inflater.inflate(R.layout.fr_course_list, container, false)
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-    }
-
     companion object { fun newInstance()=
-        WelcomeScreen()
+        CourseList()
     }
 }

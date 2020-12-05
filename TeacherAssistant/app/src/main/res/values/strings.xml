@@ -5,7 +5,17 @@
     <string name="welcome_screen_subtitle">Manage your courses with ease</string>
     <string name="welcome_screen_to_courses">Courses</string>
     <string name="welcome_screen_to_students">Students</string>
-    <string name="welcome_screen__to_report">Report</string>
+    <string name="welcome_screen_to_report">Report</string>
+
+    <!--Student List-->
+    <string name="student_list_title">Students</string>
+    <string name="student_list_to_add">Add new student</string>
+
+    <!--Add Student-->
+    <string name="add_student_first_name">First Name</string>
+    <string name="add_student_last_name">Last Name</string>
+    <string name="add_student_add">Add</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
