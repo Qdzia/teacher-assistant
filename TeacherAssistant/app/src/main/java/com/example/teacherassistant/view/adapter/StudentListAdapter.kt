@@ -3,7 +3,6 @@ package com.example.teacherassistant.view.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.teacherassistant.R
 import com.example.teacherassistant.model.Student
@@ -25,9 +24,9 @@ class StudentListAdapter: RecyclerView.Adapter<StudentListAdapter.MyViewHolder>(
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val currentItem = studentList[position]
-        holder.itemView.studentId.text = currentItem.id.toString()
-        holder.itemView.studentName.text = currentItem.firstName
-        holder.itemView.studentLastName.text = currentItem.lastName
+        holder.itemView.row_s_id_tv.text = currentItem.id.toString()
+        holder.itemView.row_s_first_name_tv.text = currentItem.firstName
+        holder.itemView.row_s_last_name_tv.text = currentItem.lastName
 
 //        holder.itemView.rowLayout.setOnClickListener {
 //            val action = ListFragmentDirections.actionListFragmentToUpdateFragment(currentItem)

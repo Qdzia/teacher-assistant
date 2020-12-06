@@ -9,7 +9,7 @@ import com.example.teacherassistant.model.Student
 @Database(entities = [Student::class], version = 1, exportSchema = false)
 abstract class StudentDatabase : RoomDatabase() {
 
-    abstract fun userDao(): StudentDao
+    abstract fun studentDao(): StudentDao
 
     companion object {
         @Volatile

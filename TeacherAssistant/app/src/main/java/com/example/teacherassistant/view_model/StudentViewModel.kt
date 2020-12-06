@@ -18,7 +18,7 @@ class StudentViewModel(application: Application): AndroidViewModel(application) 
     init {
         val studentDao = StudentDatabase.getDatabase(
             application
-        ).userDao()
+        ).studentDao()
         repository = StudentRepository(studentDao)
         readAllData = repository.readAllData
     }

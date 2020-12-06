@@ -6,18 +6,18 @@ import com.example.teacherassistant.model.Student
 
 class StudentRepository(private val studentDao: StudentDao) {
 
-    val readAllData: LiveData<List<Student>> = studentDao.readAllData()
+    val readAllData: LiveData<List<Student>> = studentDao.readAll()
 
     suspend fun addStudent(student: Student){
-        studentDao.addStudent(student)
+        studentDao.add(student)
     }
 
     suspend fun updateStudent(student: Student){
-        studentDao.updateStudent(student)
+        studentDao.update(student)
     }
 
     suspend fun deleteStudent(student: Student){
-        studentDao.deleteStudent(student)
+        studentDao.delete(student)
     }
 
 //    suspend fun deleteAllStudents(){

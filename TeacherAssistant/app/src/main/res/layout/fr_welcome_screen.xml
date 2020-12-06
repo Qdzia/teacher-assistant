@@ -8,58 +8,58 @@
     tools:context=".view.WelcomeScreen">
 
     <TextView
-        android:id="@+id/welcomeScreenTitle"
+        android:id="@+id/ws_title_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
-        android:text="@string/welcome_screen_title"
+        android:text="@string/ws_title"
         android:textSize="35sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/welcomeScreenSubtitle"
+        android:id="@+id/ws_subtitle_tv"
         android:layout_width="wrap_content"
         android:layout_height="30dp"
-        android:text="@string/welcome_screen_subtitle"
+        android:text="@string/ws_subtitle"
         android:textSize="22sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/welcomeScreenTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/ws_title_tv" />
 
     <Button
-        android:id="@+id/toCoursesListButton"
+        android:id="@+id/ws_to_course_list"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/welcome_screen_to_courses"
+        android:text="@string/ws_to_courses"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/welcomeScreenSubtitle"
+        app:layout_constraintTop_toBottomOf="@+id/ws_subtitle_tv"
         app:layout_constraintVertical_bias="0.30" />
 
     <Button
-        android:id="@+id/toStudentsListButton"
+        android:id="@+id/ws_to_student_list"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="@string/welcome_screen_to_students"
+        android:text="@string/ws_to_student_list"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toCoursesListButton" />
+        app:layout_constraintTop_toBottomOf="@+id/ws_to_course_list" />
 
     <Button
-        android:id="@+id/toReportButton"
+        android:id="@+id/ws_to_report"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="@string/welcome_screen_to_report"
+        android:text="@string/ws_to_report"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toStudentsListButton" />
+        app:layout_constraintTop_toBottomOf="@+id/ws_to_student_list" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

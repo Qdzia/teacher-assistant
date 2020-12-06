@@ -8,18 +8,18 @@ import com.example.teacherassistant.model.Student
 interface StudentDao {
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun addStudent(user: Student)
+    suspend fun add(user: Student)
 
     @Update
-    suspend fun updateStudent(user: Student)
+    suspend fun update(user: Student)
 
     @Delete
-    suspend fun deleteStudent(user: Student)
+    suspend fun delete(user: Student)
 
     @Query("DELETE FROM student_table")
-    suspend fun deleteAllStudents()
+    suspend fun deleteAll()
 
     @Query("SELECT * FROM student_table ORDER BY id ASC")
-    fun readAllData(): LiveData<List<Student>>
+    fun readAll(): LiveData<List<Student>>
 
 }

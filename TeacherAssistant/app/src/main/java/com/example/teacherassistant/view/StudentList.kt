@@ -26,24 +26,20 @@ class StudentList : Fragment() {
 
         // Recyclerview
         val adapter = StudentListAdapter()
-        val recyclerView = view.studentListRecycleView
+        val recyclerView = view.sl_students_rv
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
         // UserViewModel
         studentViewModel = ViewModelProvider(this).get(StudentViewModel::class.java)
-        studentViewModel.readAllData.observe(viewLifecycleOwner, Observer { user ->
-            adapter.setData(user)
+        studentViewModel.readAllData.observe(viewLifecycleOwner, Observer { student ->
+            adapter.setData(student)
         })
 
-        view.toAddStudent.setOnClickListener {
+        view.sl_to_add_student.setOnClickListener {
             findNavController().navigate(R.id.action_studentList_to_addStudent)
         }
 
         return view;
-    }
-
-    companion object { fun newInstance()=
-        StudentList()
     }
 }

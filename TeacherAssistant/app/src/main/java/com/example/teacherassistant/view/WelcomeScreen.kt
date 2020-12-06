@@ -21,13 +21,13 @@ class WelcomeScreen : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        toCoursesListButton.setOnClickListener {
+        ws_to_course_list.setOnClickListener {
                 view->view.findNavController().navigate(R.id.action_welcomeScreen_to_courseList)
         }
-        toStudentsListButton.setOnClickListener {
+        ws_to_student_list.setOnClickListener {
                 view->view.findNavController().navigate(R.id.action_welcomeScreen_to_studentList)
         }
-        toReportButton.setOnClickListener {
+        ws_to_report.setOnClickListener {
                 view->view.findNavController().navigate(R.id.action_welcomeScreen_to_report)
         }
     }
