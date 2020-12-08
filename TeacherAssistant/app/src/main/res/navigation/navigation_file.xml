@@ -33,6 +33,9 @@
         <action
             android:id="@+id/action_studentList_to_addStudent"
             app:destination="@id/addStudent" />
+        <action
+            android:id="@+id/action_studentList_to_editStudent"
+            app:destination="@id/editStudent" />
     </fragment>
     <fragment
         android:id="@+id/report"
@@ -46,6 +49,15 @@
         tools:layout="@layout/fr_add_student" >
         <action
             android:id="@+id/action_addStudent_to_studentList"
+            app:destination="@id/studentList" />
+    </fragment>
+    <fragment
+        android:id="@+id/editStudent"
+        android:name="com.example.teacherassistant.view.EditStudent"
+        android:label="fr_edit_student"
+        tools:layout="@layout/fr_edit_student" >
+        <action
+            android:id="@+id/action_editStudent_to_studentList"
             app:destination="@id/studentList" />
     </fragment>
 </navigation>
