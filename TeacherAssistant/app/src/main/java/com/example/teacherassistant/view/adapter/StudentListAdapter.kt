@@ -41,9 +41,7 @@ class StudentListAdapter: RecyclerView.Adapter<StudentListAdapter.MyViewHolder>(
         holder.itemView.row_s_last_name_tv.text = currentItem.lastName
 
         holder.itemView.row_s_layout.setOnClickListener {
-            AppState.updateStudentName = currentItem.firstName
-            AppState.updateStudentLast = currentItem.lastName
-
+            AppState.updateStudent = currentItem
             holder.itemView.findNavController().navigate(R.id.action_studentList_to_editStudent)
         }
     }
