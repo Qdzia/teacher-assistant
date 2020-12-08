@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_file"
+    app:startDestination="@id/welcomeScreen">
+
+    <fragment
+        android:id="@+id/welcomeScreen"
+        android:name="com.example.teacherassistant.view.WelcomeScreen"
+        android:label="fr_welcome_screen"
+        tools:layout="@layout/fr_welcome_screen" >
+        <action
+            android:id="@+id/action_welcomeScreen_to_courseList"
+            app:destination="@id/courseList" />
+        <action
+            android:id="@+id/action_welcomeScreen_to_studentList"
+            app:destination="@id/studentList" />
+        <action
+            android:id="@+id/action_welcomeScreen_to_report"
+            app:destination="@id/report" />
+    </fragment>
+    <fragment
+        android:id="@+id/courseList"
+        android:name="com.example.teacherassistant.view.CourseList"
+        android:label="fr_course_list"
+        tools:layout="@layout/fr_course_list" />
+    <fragment
+        android:id="@+id/studentList"
+        android:name="com.example.teacherassistant.view.StudentList"
+        android:label="fr_student_list"
+        tools:layout="@layout/fr_student_list" >
+        <action
+            android:id="@+id/action_studentList_to_addStudent"
+            app:destination="@id/addStudent" />
+        <action
+            android:id="@+id/action_studentList_to_editStudent"
+            app:destination="@id/editStudent" />
+    </fragment>
+    <fragment
+        android:id="@+id/report"
+        android:name="com.example.teacherassistant.view.Report"
+        android:label="fr_report"
+        tools:layout="@layout/fr_report" />
+    <fragment
+        android:id="@+id/addStudent"
+        android:name="com.example.teacherassistant.view.AddStudent"
+        android:label="fr_add_student"
+        tools:layout="@layout/fr_add_student" >
+        <action
+            android:id="@+id/action_addStudent_to_studentList"
+            app:destination="@id/studentList" />
+    </fragment>
+    <fragment
+        android:id="@+id/editStudent"
+        android:name="com.example.teacherassistant.view.EditStudent"
+        android:label="fr_edit_student"
+        tools:layout="@layout/fr_edit_student" >
+        <action
+            android:id="@+id/action_editStudent_to_studentList"
+            app:destination="@id/studentList" />
+    </fragment>
+</navigation>

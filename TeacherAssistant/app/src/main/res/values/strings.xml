@@ -1,3 +1,23 @@
 <resources>
     <string name="app_name">Teacher Assistant</string>
+    <!--Welcome Screen-->
+    <string name="ws_title">Teacher Assistant</string>
+    <string name="ws_subtitle">Manage your courses with ease</string>
+    <string name="ws_to_courses">Courses</string>
+    <string name="ws_to_student_list">Students</string>
+    <string name="ws_to_report">Report</string>
+
+    <!--Student List-->
+    <string name="s_title">Students</string>
+    <string name="s_to_add_student">Add new student</string>
+
+    <!--Add Student-->
+    <string name="as_first_name">First Name</string>
+    <string name="as_last_name">Last Name</string>
+    <string name="as_add">Add</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
 </resources>
