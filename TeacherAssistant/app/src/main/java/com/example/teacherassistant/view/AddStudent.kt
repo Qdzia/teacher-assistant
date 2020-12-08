@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import com.example.teacherassistant.AppState
 import com.example.teacherassistant.R
 import com.example.teacherassistant.model.Student
 import com.example.teacherassistant.view_model.StudentViewModel
@@ -30,7 +31,6 @@ class AddStudent : Fragment() {
         view.as_add_student_btn.setOnClickListener {
             insertDataToDatabase()
         }
-
         return view
     }
 
