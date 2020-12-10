@@ -16,6 +16,10 @@
     <string name="as_last_name">Last Name</string>
     <string name="as_add">Add</string>
 
+    <!--Add Course-->
+    <string name="ac_course_name">Course Name</string>
+    <string name="ac_add">Add</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 

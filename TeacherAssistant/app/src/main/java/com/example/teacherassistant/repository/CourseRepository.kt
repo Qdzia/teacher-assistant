@@ -9,7 +9,7 @@ import com.example.teacherassistant.model.Participant
 class CourseRepository(private val courseDao: CourseDao,
                        private val participantDao: ParticipantDao) {
 
-    val readAllData: LiveData<List<Course>> = courseDao.readAll()
+    val readAllCourses: LiveData<List<Course>> = courseDao.readAll()
 
     suspend fun addCourse(course: Course){
         courseDao.add(course)

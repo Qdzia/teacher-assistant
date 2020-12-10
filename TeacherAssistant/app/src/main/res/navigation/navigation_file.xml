@@ -24,7 +24,11 @@
         android:id="@+id/courseList"
         android:name="com.example.teacherassistant.view.CourseList"
         android:label="fr_course_list"
-        tools:layout="@layout/fr_course_list" />
+        tools:layout="@layout/fr_course_list" >
+        <action
+            android:id="@+id/action_courseList_to_addCourse"
+            app:destination="@id/addCourse" />
+    </fragment>
     <fragment
         android:id="@+id/studentList"
         android:name="com.example.teacherassistant.view.StudentList"
@@ -59,5 +63,14 @@
         <action
             android:id="@+id/action_editStudent_to_studentList"
             app:destination="@id/studentList" />
+    </fragment>
+    <fragment
+        android:id="@+id/addCourse"
+        android:name="com.example.teacherassistant.view.AddCourse"
+        android:label="fr_add_course"
+        tools:layout="@layout/fr_add_course" >
+        <action
+            android:id="@+id/action_addCourse_to_courseList"
+            app:destination="@id/courseList" />
     </fragment>
 </navigation>
