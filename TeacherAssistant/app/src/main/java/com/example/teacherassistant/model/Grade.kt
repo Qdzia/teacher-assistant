@@ -27,5 +27,5 @@ data class Grade(
     val student_id: Int,
     val grade: Double,
     val description: String,
-    val date: LocalDateTime
+    val date: String
 )

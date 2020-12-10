@@ -9,9 +9,9 @@ import com.example.teacherassistant.model.Grade
 import com.example.teacherassistant.model.Participant
 import com.example.teacherassistant.model.Student
 
-class StudentRepository(private val studentDao: StudentDao,
-                        private val gradeDao: GradeDao
-) {
+class StudentRepository(private val studentDao: StudentDao)
+                       // ,private val gradeDao: GradeDao
+ {
 
     val readAllData: LiveData<List<Student>> = studentDao.readAll()
 
@@ -27,8 +27,8 @@ class StudentRepository(private val studentDao: StudentDao,
         studentDao.delete(student)
     }
 
-    suspend fun readStudentGrade(student: Student) : LiveData<List<Grade>>{
-        return gradeDao.readStudentGrade(student.id)
-    }
+//    suspend fun readStudentGrade(student: Student) : LiveData<List<Grade>>{
+//        return gradeDao.readStudentGrade(student.id)
+//    }
 
 }

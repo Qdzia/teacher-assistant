@@ -4,7 +4,7 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
-import com.example.teacherassistant.data.StudentDatabase
+import com.example.teacherassistant.data.AppDatabase
 import com.example.teacherassistant.repository.StudentRepository
 import com.example.teacherassistant.model.Student
 import kotlinx.coroutines.Dispatchers
@@ -16,7 +16,7 @@ class StudentViewModel(application: Application): AndroidViewModel(application) 
     private val repository: StudentRepository
 
     init {
-        val studentDao = StudentDatabase.getDatabase(
+        val studentDao = AppDatabase.getDatabase(
             application
         ).studentDao()
         repository = StudentRepository(studentDao)
