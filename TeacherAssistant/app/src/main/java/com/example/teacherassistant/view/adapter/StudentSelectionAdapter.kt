@@ -1,20 +1,19 @@
 package com.example.teacherassistant.view.adapter
 
-import android.os.Bundle
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
+import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.FragmentTransaction
-import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.teacherassistant.AppState
 import com.example.teacherassistant.R
 import com.example.teacherassistant.model.Student
-import com.example.teacherassistant.view.AddStudent
 import kotlinx.android.synthetic.main.row_student.view.*
 
 
-class StudentListAdapter: RecyclerView.Adapter<StudentListAdapter.MyViewHolder>() {
+class StudentSelectionAdapter: RecyclerView.Adapter<StudentSelectionAdapter.MyViewHolder>() {
 
     private var studentList = emptyList<Student>()
 
@@ -41,13 +40,29 @@ class StudentListAdapter: RecyclerView.Adapter<StudentListAdapter.MyViewHolder>(
         holder.itemView.row_s_last_name_tv.text = currentItem.lastName
 
         holder.itemView.row_s_layout.setOnClickListener {
-            AppState.updateStudent = currentItem
-            holder.itemView.findNavController().navigate(R.id.action_studentList_to_editStudent)
+            selectItem(it,currentItem)
         }
     }
 
     fun setData(students: List<Student>){
         this.studentList = students
         notifyDataSetChanged()
+    }
+
+    fun selectItem(view: View,student:Student){
+
+
+        var color = Color.TRANSPARENT
+        val background: Drawable = view.background
+        if (background is ColorDrawable) color = background.color
+
+        if(color == Color.TRANSPARENT.toInt())
+        {
+            view.setBackgroundColor(Color.parseColor("#7751c2"));
+            AppState.studentsToAdd.add(student)
+        }else{
+            view.setBackgroundColor(Color.TRANSPARENT);
+            AppState.studentsToAdd.remove(student)
+        }
     }
 }

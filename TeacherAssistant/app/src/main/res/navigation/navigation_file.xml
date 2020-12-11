@@ -28,6 +28,9 @@
         <action
             android:id="@+id/action_courseList_to_addCourse"
             app:destination="@id/addCourse" />
+        <action
+            android:id="@+id/action_courseList_to_courseStudent"
+            app:destination="@id/courseStudent" />
     </fragment>
     <fragment
         android:id="@+id/studentList"
@@ -73,4 +76,9 @@
             android:id="@+id/action_addCourse_to_courseList"
             app:destination="@id/courseList" />
     </fragment>
+    <fragment
+        android:id="@+id/courseStudent"
+        android:name="com.example.teacherassistant.view.CourseStudent"
+        android:label="fr_course_student"
+        tools:layout="@layout/fr_course_student" />
 </navigation>

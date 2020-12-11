@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.example.teacherassistant.model.Course
 import com.example.teacherassistant.model.Participant
+import com.example.teacherassistant.model.Student
 
 @Dao
 interface ParticipantDao {
@@ -17,8 +18,9 @@ interface ParticipantDao {
     @Delete
     suspend fun delete(participant: Participant)
 
-    @Query("SELECT * FROM participant_table WHERE course_id = :courseId")
-    fun readParticipantFromCourse(courseId : Int): LiveData<List<Participant>>
+    @Query("SELECT * FROM student_table s JOIN participant_table p on s.id = p.student_id  WHERE course_id = :courseId")
+    //@Query("SELECT * FROM participant_table")
+    fun readStudentsFromCourse(courseId : Int): LiveData<List<Student>>
 
 
 }

@@ -20,6 +20,10 @@
     <string name="ac_course_name">Course Name</string>
     <string name="ac_add">Add</string>
 
+    <!--Row Student Grade-->
+    <string name="row_sg_grades">Grades: </string>
+    <string name="row_sg_avrage">Avrage: </string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 

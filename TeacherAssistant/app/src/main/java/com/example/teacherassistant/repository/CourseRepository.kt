@@ -1,10 +1,12 @@
 package com.example.teacherassistant.repository
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import com.example.teacherassistant.data.CourseDao
 import com.example.teacherassistant.data.ParticipantDao
 import com.example.teacherassistant.model.Course
 import com.example.teacherassistant.model.Participant
+import com.example.teacherassistant.model.Student
 
 class CourseRepository(private val courseDao: CourseDao,
                        private val participantDao: ParticipantDao) {
@@ -31,7 +33,13 @@ class CourseRepository(private val courseDao: CourseDao,
         participantDao.delete(participant)
     }
 
-    suspend fun readParticipantFromCourse(course: Course) : LiveData<List<Participant>>{
-        return participantDao.readParticipantFromCourse(course.id)
+    fun readParticipantFromCourse(course: Course) : LiveData<List<Student>>{
+        return participantDao.readStudentsFromCourse(course.id)
     }
+
+    fun getCourseByName(name:String): Course? {
+        val list = courseDao.readAll()
+        return list.value?.get(0)
+    }
+
 }

@@ -1,11 +1,13 @@
 package com.example.teacherassistant.view_model
 
 import android.app.Application
+import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
 import com.example.teacherassistant.data.AppDatabase
 import com.example.teacherassistant.model.Course
+import com.example.teacherassistant.model.Participant
 import com.example.teacherassistant.model.Student
 import com.example.teacherassistant.repository.CourseRepository
 import kotlinx.coroutines.Dispatchers
@@ -39,6 +41,25 @@ class CourseViewModel(application: Application): AndroidViewModel(application) {
         viewModelScope.launch(Dispatchers.IO) {
             repository.deleteCourse(course)
         }
+    }
+
+     fun addStudentsToCourse(studentsList: MutableList<Student>,course : Course){
+
+        studentsList.forEach {
+            viewModelScope.launch(Dispatchers.IO) {
+                repository.addParticipant(Participant(0,it.id,course.id))
+            }
+        }
+    }
+
+    fun getCourseByName(name:String) : Course{
+        var course = repository.getCourseByName(name)
+        if(course == null ) course = Course(100,"Error")
+        return course
+    }
+
+    fun readParticipantFromCourse(course:Course): LiveData<List<Student>> {
+        return repository.readParticipantFromCourse(course)
     }
 
 }

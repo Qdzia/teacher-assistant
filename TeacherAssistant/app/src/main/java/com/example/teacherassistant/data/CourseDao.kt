@@ -19,4 +19,7 @@ interface CourseDao {
     @Query("SELECT * FROM course_table ORDER BY id ASC")
     fun readAll(): LiveData<List<Course>>
 
+    @Query("SELECT * FROM course_table WHERE courseName = 'Logic' ")
+    fun getByName(): LiveData<List<Course>>
+
 }
