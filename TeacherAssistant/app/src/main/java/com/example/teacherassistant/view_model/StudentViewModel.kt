@@ -14,14 +14,22 @@ import kotlinx.coroutines.launch
 class StudentViewModel(application: Application): AndroidViewModel(application) {
 
     val readAllData: LiveData<List<Student>>
+    val readAllGrades: LiveData<List<Grade>>
+
     private val repository: StudentRepository
 
     init {
         val studentDao = AppDatabase.getDatabase(
             application
         ).studentDao()
-        repository = StudentRepository(studentDao)
+        val gradeDao = AppDatabase.getDatabase(
+            application
+        ).gradeDao()
+
+        repository = StudentRepository(studentDao,gradeDao)
         readAllData = repository.readAllData
+        readAllGrades = repository.readAllGrades
+
     }
 
     fun addStudent(user: Student){
@@ -43,7 +51,9 @@ class StudentViewModel(application: Application): AndroidViewModel(application) 
     }
 
     fun addGrade(grade: Grade){
-
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.addGrade(grade)
+        }
     }
 //    fun deleteAllUsers(){
 //        viewModelScope.launch(Dispatchers.IO) {

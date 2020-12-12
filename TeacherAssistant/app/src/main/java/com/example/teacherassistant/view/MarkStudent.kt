@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.teacherassistant.AppState
 import com.example.teacherassistant.R
@@ -29,10 +30,12 @@ class MarkStudent : Fragment() {
 
         view.ms_student_info_tv.text = "${AppState.activeStudent.firstName} ${AppState.activeStudent.lastName}"
 
-        view.ms_submit_btn.setOnClickListener {
-            //insertDataToDatabase()
+        studentViewModel = ViewModelProvider(this).get(StudentViewModel::class.java)
 
-            Log.e("Debug:","${AppState.activeStudent.firstName} ${AppState.activeCourse.courseName}")
+        view.ms_submit_btn.setOnClickListener {
+            insertDataToDatabase()
+
+            //Log.e("Debug:","${AppState.activeStudent.firstName} ${AppState.activeCourse.courseName}")
         }
 
         return view
@@ -44,17 +47,17 @@ class MarkStudent : Fragment() {
 
         if(inputCheck(grade,desc)){
             val gradeObj = Grade(0,
-                AppState.activeCourse.id,
-                AppState.activeStudent.id,
+                1,//AppState.activeCourse.id,
+                3,//AppState.activeStudent.id,
                 grade,
                 desc,
                 LocalDateTime.now().toString()
             )
-
+            //Log.e("Debug:","s: ${AppState.activeCourse.id} c: ${AppState.activeStudent.id}")
             studentViewModel.addGrade(gradeObj)
             Toast.makeText(requireContext(), "Successfully added!", Toast.LENGTH_LONG).show()
 
-            findNavController().navigate(R.id.action_addCourse_to_courseList)
+            findNavController().navigate(R.id.action_markStudent_to_courseStudent)
         }else{
             Toast.makeText(requireContext(), "Please fill out all fields.", Toast.LENGTH_LONG).show()
         }

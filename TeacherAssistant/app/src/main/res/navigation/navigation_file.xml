@@ -89,5 +89,9 @@
         android:id="@+id/markStudent"
         android:name="com.example.teacherassistant.view.MarkStudent"
         android:label="fr_mark_student"
-        tools:layout="@layout/fr_mark_student" />
+        tools:layout="@layout/fr_mark_student" >
+        <action
+            android:id="@+id/action_markStudent_to_courseStudent"
+            app:destination="@id/courseStudent" />
+    </fragment>
 </navigation>
