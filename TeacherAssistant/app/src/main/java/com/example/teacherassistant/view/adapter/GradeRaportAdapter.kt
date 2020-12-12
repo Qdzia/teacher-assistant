@@ -7,20 +7,22 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.teacherassistant.AppState
 import com.example.teacherassistant.R
-import com.example.teacherassistant.model.Participant
+import com.example.teacherassistant.model.Grade
 import com.example.teacherassistant.model.Student
+import kotlinx.android.synthetic.main.row_grade_raport.view.*
 import kotlinx.android.synthetic.main.row_student_grade.view.*
 
-class StudentGradeAdapter: RecyclerView.Adapter<StudentGradeAdapter.MyViewHolder>() {
 
-    private var studentList = emptyList<Student>()
+class GradeRaportAdapter: RecyclerView.Adapter<GradeRaportAdapter.MyViewHolder>() {
+
+    private var gradeList = emptyList<Grade>()
 
     class MyViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {}
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         return MyViewHolder(
             LayoutInflater.from(parent.context).inflate(
-                R.layout.row_student_grade,
+                R.layout.row_grade_raport,
                 parent,
                 false
             )
@@ -28,22 +30,21 @@ class StudentGradeAdapter: RecyclerView.Adapter<StudentGradeAdapter.MyViewHolder
     }
 
     override fun getItemCount(): Int {
-        return studentList.size
+        return gradeList.size
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        val currentItem = studentList[position]
-        holder.itemView.row_sg_first_name.text = currentItem.firstName
-        holder.itemView.row_sg_last_name.text = currentItem.lastName
+        val currentItem = gradeList[position]
 
-        holder.itemView.row_sg_layout.setOnClickListener {
-            AppState.activeStudent = currentItem
-            holder.itemView.findNavController().navigate(R.id.action_courseStudent_to_markStudent)
-        }
+        holder.itemView.row_gr_grade_tv.text = currentItem.grade.toString()
+        holder.itemView.row_gr_student_info_tv.text = currentItem.student_id.toString()
+        holder.itemView.row_gr_date_tv.text = currentItem.date
+        holder.itemView.row_gr_desc_tv.text = currentItem.description
+
     }
 
-    fun setData(students: List<Student>){
-        this.studentList = students
+    fun setData(grades: List<Grade>){
+        this.gradeList = grades
         notifyDataSetChanged()
     }
 }
