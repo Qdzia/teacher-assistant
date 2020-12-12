@@ -36,10 +36,10 @@ class StudentGradeAdapter: RecyclerView.Adapter<StudentGradeAdapter.MyViewHolder
         holder.itemView.row_sg_first_name.text = currentItem.firstName
         holder.itemView.row_sg_last_name.text = currentItem.lastName
 
-//        holder.itemView.row_s_layout.setOnClickListener {
-//            AppState.updateStudent = currentItem
-//            holder.itemView.findNavController().navigate(R.id.action_studentList_to_editStudent)
-//        }
+        holder.itemView.row_sg_layout.setOnClickListener {
+            AppState.updateStudent = currentItem
+            holder.itemView.findNavController().navigate(R.id.action_courseStudent_to_markStudent)
+        }
     }
 
     fun setData(students: List<Student>){

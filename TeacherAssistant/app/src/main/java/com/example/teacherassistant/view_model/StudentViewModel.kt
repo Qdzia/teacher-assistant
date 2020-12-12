@@ -5,6 +5,7 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
 import com.example.teacherassistant.data.AppDatabase
+import com.example.teacherassistant.model.Grade
 import com.example.teacherassistant.repository.StudentRepository
 import com.example.teacherassistant.model.Student
 import kotlinx.coroutines.Dispatchers
@@ -41,8 +42,9 @@ class StudentViewModel(application: Application): AndroidViewModel(application) 
         }
     }
 
+    fun addGrade(grade: Grade){
 
-
+    }
 //    fun deleteAllUsers(){
 //        viewModelScope.launch(Dispatchers.IO) {
 //            repository.deleteAllStudents()

@@ -24,6 +24,11 @@
     <string name="row_sg_grades">Grades: </string>
     <string name="row_sg_avrage">Avrage: </string>
 
+    <!--Mark Student-->
+    <string name="ms_grades">Grade: </string>
+    <string name="ms_desc">Description: </string>
+    <string name="ms_btn">Submit</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
