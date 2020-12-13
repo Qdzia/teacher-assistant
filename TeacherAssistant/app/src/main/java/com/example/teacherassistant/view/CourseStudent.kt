@@ -1,6 +1,7 @@
 package com.example.teacherassistant.view
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -14,14 +15,14 @@ import com.example.teacherassistant.R
 import com.example.teacherassistant.model.Course
 import com.example.teacherassistant.view.adapter.StudentGradeAdapter
 import com.example.teacherassistant.view_model.CourseViewModel
+import com.example.teacherassistant.view_model.ParticipantViewModel
 import com.example.teacherassistant.view_model.StudentViewModel
 import kotlinx.android.synthetic.main.fr_course_list.view.*
 import kotlinx.android.synthetic.main.fr_course_student.view.*
 
 class CourseStudent : Fragment() {
 
-    private lateinit var studentViewModel: StudentViewModel
-    private lateinit var courseViewModel: CourseViewModel
+    private lateinit var participantViewModel: ParticipantViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -36,8 +37,8 @@ class CourseStudent : Fragment() {
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
         // UserViewModel
-        courseViewModel = ViewModelProvider(requireActivity()).get(CourseViewModel::class.java)
-        courseViewModel.readParticipantFromCourse(AppState.activeCourse).observe(viewLifecycleOwner, Observer { student ->
+        participantViewModel = ViewModelProvider(requireActivity()).get(ParticipantViewModel::class.java)
+        participantViewModel.readParticipantFromCourse(AppState.activeCourse).observe(viewLifecycleOwner, Observer { student ->
             adapter.setData(student)
         })
 
@@ -50,10 +51,6 @@ class CourseStudent : Fragment() {
         view.cs_to_add_course_student.setOnClickListener {
             findNavController().navigate(R.id.action_courseStudent_to_addCourseStudent)
         }
-//        studentViewModel = ViewModelProvider(this).get(StudentViewModel::class.java)
-//        studentViewModel.readAllData.observe(viewLifecycleOwner, Observer { student ->
-//            adapter.setData(student)
-//        })
 
         return view
     }

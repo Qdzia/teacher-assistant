@@ -44,17 +44,15 @@ class MarkStudent : Fragment() {
     private fun insertDataToDatabase() {
         val grade = ms_grade_etdn.text.toString().toDouble()
         val desc = ms_desc_etml.text.toString()
+        val courseId = AppState.activeCourse.id
+        val studentId = AppState.activeStudent.id
+
 
         if(inputCheck(grade,desc)){
-            val gradeObj = Grade(0,
-                1,//AppState.activeCourse.id,
-                3,//AppState.activeStudent.id,
-                grade,
-                desc,
-                LocalDateTime.now().toString()
+            val gradeObj = Grade(0,courseId, studentId, grade, desc, LocalDateTime.now().toString()
             )
-            //Log.e("Debug:","s: ${AppState.activeCourse.id} c: ${AppState.activeStudent.id}")
-            studentViewModel.addGrade(gradeObj)
+            Log.e("Debug:","s: ${courseId} c: ${studentId}")
+            //studentViewModel.addGrade(gradeObj)
             Toast.makeText(requireContext(), "Successfully added!", Toast.LENGTH_LONG).show()
 
             findNavController().navigate(R.id.action_markStudent_to_courseStudent)

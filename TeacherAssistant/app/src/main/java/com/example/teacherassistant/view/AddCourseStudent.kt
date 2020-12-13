@@ -53,6 +53,9 @@ class AddCourseStudent : Fragment() {
 
             participantViewModel.deleteAllParticipantFromCourse(AppState.activeCourse.id)
             participantViewModel.addParticipants(AppState.studentsToAdd,AppState.activeCourse)
+//            AppState.studentsToAdd.forEach {
+//                Log.e("addcourseStudent", "${it.id} ${it.firstName} ${it.lastName}")
+//            }
 
             findNavController().navigate(R.id.action_addCourseStudent_to_courseStudent)
         }

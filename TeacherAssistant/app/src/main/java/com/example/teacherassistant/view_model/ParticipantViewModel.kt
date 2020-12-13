@@ -1,6 +1,7 @@
 package com.example.teacherassistant.view_model
 
 import android.app.Application
+import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
@@ -25,6 +26,7 @@ class ParticipantViewModel(application: Application): AndroidViewModel(applicati
     }
 
     fun addParticipants(studentsList: MutableList<Student>, course : Course){
+
         studentsList.forEach {
             viewModelScope.launch(Dispatchers.IO) {
                 repository.addParticipant(Participant(0,it.id,course.id))

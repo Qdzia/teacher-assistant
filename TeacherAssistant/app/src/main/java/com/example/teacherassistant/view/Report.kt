@@ -10,12 +10,13 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.teacherassistant.R
 import com.example.teacherassistant.view.adapter.GradeRaportAdapter
+import com.example.teacherassistant.view_model.GradeViewModel
 import com.example.teacherassistant.view_model.StudentViewModel
 import kotlinx.android.synthetic.main.fr_report.view.*
 
 class Report : Fragment() {
 
-    private lateinit var studentViewModel: StudentViewModel
+    private lateinit var gradeViewModel: GradeViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,8 +30,8 @@ class Report : Fragment() {
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
         // UserViewModel
-        studentViewModel = ViewModelProvider(requireActivity()).get(StudentViewModel::class.java)
-        studentViewModel.readAllGrades.observe(viewLifecycleOwner, Observer { grade ->
+        gradeViewModel = ViewModelProvider(requireActivity()).get(GradeViewModel::class.java)
+        gradeViewModel.readFullTodayGrades.observe(viewLifecycleOwner, Observer { grade ->
             adapter.setData(grade)
         })
 

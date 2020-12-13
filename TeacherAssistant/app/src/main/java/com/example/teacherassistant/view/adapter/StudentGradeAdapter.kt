@@ -1,5 +1,6 @@
 package com.example.teacherassistant.view.adapter
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -35,6 +36,8 @@ class StudentGradeAdapter: RecyclerView.Adapter<StudentGradeAdapter.MyViewHolder
         val currentItem = studentList[position]
         holder.itemView.row_sg_first_name.text = currentItem.firstName
         holder.itemView.row_sg_last_name.text = currentItem.lastName
+        holder.itemView.row_sg_grades.text = currentItem.id.toString()
+
 
         holder.itemView.row_sg_layout.setOnClickListener {
             AppState.activeStudent = currentItem
