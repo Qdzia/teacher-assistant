@@ -45,22 +45,23 @@ class AddCourseStudent : Fragment() {
         // UserViewModel
         courseViewModel = ViewModelProvider(requireActivity()).get(CourseViewModel::class.java)
         studentViewModel = ViewModelProvider(requireActivity()).get(StudentViewModel::class.java)
+        participantViewModel = ViewModelProvider(requireActivity()).get(ParticipantViewModel::class.java)
 
         studentViewModel.readAllData.observe(viewLifecycleOwner, Observer { student ->
             adapter.setData(student)
         })
 
-//        courseViewModel.readAllParticipant.forEach {
-//                Log.e("Participant:","c: ${it.course_id} s: ${it.student_id}")
-//            }
-        courseViewModel.readAllCourses.value?.forEach {
-            Log.e("Participant:"," ${it.courseName} ")
-        }
-        courseViewModel.readParticipantFromCourse(AppState.activeCourse).value?.forEach {
-            Log.e("Participant:"," ${it.firstName} ")
-        }
+
 
         view.acs_add_btn.setOnClickListener {
+
+            participantViewModel.deleteAllParticipantFromCourse(AppState.activeCourse.id)
+            participantViewModel.addParticipants(AppState.studentsToAdd,AppState.activeCourse)
+
+            findNavController().navigate(R.id.action_addCourseStudent_to_courseStudent)
+//            participantViewModel.readAll.value?.forEach{
+//                Log.e("Participant:"," s: ${it.student_id} c: ${it.course_id}")
+//            }
             //insertDataToDatabase()
 //            courseViewModel.readAllParticipant.forEach {
 //                Log.e("Participant:","c: ${it.course_id} s: ${it.student_id}\"")
