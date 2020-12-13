@@ -10,6 +10,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.teacherassistant.AppState
 import com.example.teacherassistant.R
 import com.example.teacherassistant.view.adapter.CourseListAdapter
 import com.example.teacherassistant.view.adapter.StudentListAdapter
@@ -27,6 +28,8 @@ class CourseList : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view  = inflater.inflate(R.layout.fr_course_list, container, false)
+
+        AppState.isCourseList = true
 
         // Recyclerview
         val adapter = CourseListAdapter()

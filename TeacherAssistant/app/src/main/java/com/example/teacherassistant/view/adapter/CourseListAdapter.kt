@@ -38,7 +38,12 @@ class CourseListAdapter: RecyclerView.Adapter<CourseListAdapter.MyViewHolder>() 
         holder.itemView.row_c_layout.setOnClickListener {
             //AppState.updateStudent = currentItem
             AppState.activeCourse = currentItem
-            holder.itemView.findNavController().navigate(R.id.action_courseList_to_courseStudent)
+
+            if(AppState.isCourseList)
+                holder.itemView.findNavController().navigate(R.id.action_courseList_to_courseStudent)
+            else
+                holder.itemView.findNavController().navigate(R.id.action_studentInfo_to_studentCourseGrade)
+
         }
     }
 

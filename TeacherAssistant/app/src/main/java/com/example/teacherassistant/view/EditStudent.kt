@@ -29,8 +29,8 @@ class EditStudent : Fragment() {
 
         studentViewModel = ViewModelProvider(requireActivity()).get(StudentViewModel::class.java)
 
-        view.es_first_name_et.setText(AppState.updateStudent.firstName)
-        view.es_last_name_et.setText(AppState.updateStudent.lastName)
+        view.es_first_name_et.setText(AppState.activeStudent.firstName)
+        view.es_last_name_et.setText(AppState.activeStudent.lastName)
 
         view.es_delete_student_btn.setOnClickListener{
             deleteUser()
@@ -45,16 +45,16 @@ class EditStudent : Fragment() {
     private fun deleteUser() {
         val builder = AlertDialog.Builder(requireContext())
         builder.setPositiveButton("Yes") { _, _ ->
-            studentViewModel.deleteStudent(AppState.updateStudent)
+            studentViewModel.deleteStudent(AppState.activeStudent)
             Toast.makeText(
                 requireContext(),
-                "Successfully removed: ${AppState.updateStudent.firstName}",
+                "Successfully removed: ${AppState.activeStudent.firstName}",
                 Toast.LENGTH_SHORT).show()
             findNavController().navigate(R.id.action_editStudent_to_studentList)
         }
         builder.setNegativeButton("No") { _, _ -> }
-        builder.setTitle("Delete ${AppState.updateStudent.firstName} ${AppState.updateStudent.lastName}?")
-        builder.setMessage("Are you sure you want to delete ${AppState.updateStudent.firstName}?")
+        builder.setTitle("Delete ${AppState.activeStudent.firstName} ${AppState.activeStudent.lastName}?")
+        builder.setMessage("Are you sure you want to delete ${AppState.activeStudent.firstName}?")
         builder.create().show()
     }
 
@@ -68,7 +68,7 @@ class EditStudent : Fragment() {
 
         if (inputCheck(firstName, lastName)) {
             // Create User Object
-            val updatedUser = Student(AppState.updateStudent.id, firstName, lastName)
+            val updatedUser = Student(AppState.activeStudent.id, firstName, lastName)
             // Update Current User
             studentViewModel.updateStudent(updatedUser)
             Toast.makeText(requireContext(), "Updated Successfully!", Toast.LENGTH_SHORT).show()

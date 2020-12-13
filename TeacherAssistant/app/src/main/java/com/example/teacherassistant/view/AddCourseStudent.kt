@@ -24,7 +24,6 @@ import kotlinx.android.synthetic.main.fr_add_course_student.view.*
 
 class AddCourseStudent : Fragment() {
 
-    private lateinit var courseViewModel: CourseViewModel
     private lateinit var studentViewModel: StudentViewModel
     private lateinit var participantViewModel: ParticipantViewModel
 
@@ -43,7 +42,6 @@ class AddCourseStudent : Fragment() {
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
         // UserViewModel
-        courseViewModel = ViewModelProvider(requireActivity()).get(CourseViewModel::class.java)
         studentViewModel = ViewModelProvider(requireActivity()).get(StudentViewModel::class.java)
         participantViewModel = ViewModelProvider(requireActivity()).get(ParticipantViewModel::class.java)
 
@@ -51,50 +49,15 @@ class AddCourseStudent : Fragment() {
             adapter.setData(student)
         })
 
-
-
         view.acs_add_btn.setOnClickListener {
 
             participantViewModel.deleteAllParticipantFromCourse(AppState.activeCourse.id)
             participantViewModel.addParticipants(AppState.studentsToAdd,AppState.activeCourse)
 
             findNavController().navigate(R.id.action_addCourseStudent_to_courseStudent)
-//            participantViewModel.readAll.value?.forEach{
-//                Log.e("Participant:"," s: ${it.student_id} c: ${it.course_id}")
-//            }
-            //insertDataToDatabase()
-//            courseViewModel.readAllParticipant.forEach {
-//                Log.e("Participant:","c: ${it.course_id} s: ${it.student_id}\"")
-//            }
-//            courseViewModel.readParticipantFromCourse(AppState.activeCourse).value?.forEach {
-//                Log.e("Participant:","${it.firstName}")
-//            }
-
         }
 
         return view
     }
-
-    private fun insertDataToDatabase() {
-
-        if (AppState.studentsToAdd.isNotEmpty()) {
-
-            courseViewModel.addStudentsToCourse(AppState.studentsToAdd,AppState.activeCourse)
-            AppState.studentsToAdd.clear()
-            Toast.makeText(requireContext(), "Successfully added!", Toast.LENGTH_LONG).show()
-
-            findNavController().navigate(R.id.action_addCourseStudent_to_courseStudent)
-        } else {
-            Toast.makeText(requireContext(), "Please fill out all fields.", Toast.LENGTH_LONG)
-                .show()
-        }
-    }
-
-    private fun inputCheck(name: String): Boolean {
-        return !(TextUtils.isEmpty(name))
-    }
-
-
-
 
 }

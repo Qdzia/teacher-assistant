@@ -19,7 +19,7 @@ interface GradeDao {
     @Query("SELECT * FROM grade_table ORDER BY id ASC")
     fun readAll(): LiveData<List<Grade>>
 
-    @Query("SELECT * FROM grade_table WHERE student_id = :studentId")
-    fun readStudentGrade(studentId: Int): LiveData<List<Grade>>
+    @Query("SELECT * FROM grade_table WHERE student_id = :studentId AND course_id = :courseId")
+    fun readFromStudentCourse(studentId: Int,courseId:Int): LiveData<List<Grade>>
 
 }

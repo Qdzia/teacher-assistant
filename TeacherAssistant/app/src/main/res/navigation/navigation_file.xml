@@ -43,6 +43,9 @@
         <action
             android:id="@+id/action_studentList_to_editStudent"
             app:destination="@id/editStudent" />
+        <action
+            android:id="@+id/action_studentList_to_studentInfo"
+            app:destination="@id/studentInfo" />
     </fragment>
     <fragment
         android:id="@+id/report"
@@ -120,5 +123,23 @@
         <action
             android:id="@+id/action_editCourse_to_courseList"
             app:destination="@id/courseList" />
+    </fragment>
+    <fragment
+        android:id="@+id/studentInfo"
+        android:name="com.example.teacherassistant.view.StudentInfo"
+        android:label="fr_student_info"
+        tools:layout="@layout/fr_student_info" >
+        <action
+            android:id="@+id/action_studentInfo_to_studentCourseGrade"
+            app:destination="@id/studentCourseGrade" />
+    </fragment>
+    <fragment
+        android:id="@+id/studentCourseGrade"
+        android:name="com.example.teacherassistant.view.StudentCourseGrade"
+        android:label="fr_student_course_grade"
+        tools:layout="@layout/fr_student_course_grade" >
+        <action
+            android:id="@+id/action_studentCourseGrade_to_studentInfo"
+            app:destination="@id/studentInfo" />
     </fragment>
 </navigation>

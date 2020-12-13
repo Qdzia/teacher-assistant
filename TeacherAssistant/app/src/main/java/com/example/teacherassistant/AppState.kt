@@ -10,6 +10,7 @@ class AppState {
         var studentsToAdd: MutableList<Student> = arrayListOf()
         var activeCourse: Course = Course(0,"error massage")
         var activeStudent: Student = Student(0,"error","massage")
+        var isCourseList: Boolean = true
 
 
     }
