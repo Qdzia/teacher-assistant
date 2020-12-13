@@ -29,7 +29,7 @@ class EditCourse : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fr_edit_course, container, false)
 
-        courseViewModel = ViewModelProvider(this).get(CourseViewModel::class.java)
+        courseViewModel = ViewModelProvider(requireActivity()).get(CourseViewModel::class.java)
 
         view.ec_course_name_et.setText(AppState.activeCourse.courseName)
 

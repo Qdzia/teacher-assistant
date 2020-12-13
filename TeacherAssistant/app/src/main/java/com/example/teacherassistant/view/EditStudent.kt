@@ -27,7 +27,7 @@ class EditStudent : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fr_edit_student, container, false)
 
-        studentViewModel = ViewModelProvider(this).get(StudentViewModel::class.java)
+        studentViewModel = ViewModelProvider(requireActivity()).get(StudentViewModel::class.java)
 
         view.es_first_name_et.setText(AppState.updateStudent.firstName)
         view.es_last_name_et.setText(AppState.updateStudent.lastName)

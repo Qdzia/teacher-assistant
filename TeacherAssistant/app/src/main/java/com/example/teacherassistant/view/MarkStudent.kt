@@ -30,7 +30,7 @@ class MarkStudent : Fragment() {
 
         view.ms_student_info_tv.text = "${AppState.activeStudent.firstName} ${AppState.activeStudent.lastName}"
 
-        studentViewModel = ViewModelProvider(this).get(StudentViewModel::class.java)
+        studentViewModel = ViewModelProvider(requireActivity()).get(StudentViewModel::class.java)
 
         view.ms_submit_btn.setOnClickListener {
             insertDataToDatabase()

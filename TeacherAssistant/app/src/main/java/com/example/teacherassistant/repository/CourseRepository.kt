@@ -35,7 +35,7 @@ class CourseRepository(private val courseDao: CourseDao,
     }
 
     fun readParticipantFromCourse(course: Course) : LiveData<List<Student>>{
-        return participantDao.readStudentsFromCourse(course.id)
+        return participantDao.readFromCourse(course.id)
     }
 
     fun getCourseByName(name:String): Course? {

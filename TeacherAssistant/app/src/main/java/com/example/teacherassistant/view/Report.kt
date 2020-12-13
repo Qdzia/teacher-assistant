@@ -29,7 +29,7 @@ class Report : Fragment() {
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
         // UserViewModel
-        studentViewModel = ViewModelProvider(this).get(StudentViewModel::class.java)
+        studentViewModel = ViewModelProvider(requireActivity()).get(StudentViewModel::class.java)
         studentViewModel.readAllGrades.observe(viewLifecycleOwner, Observer { grade ->
             adapter.setData(grade)
         })

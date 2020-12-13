@@ -34,7 +34,7 @@ class AddCourse : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fr_add_course, container, false)
 
-        courseViewModel = ViewModelProvider(this).get(CourseViewModel::class.java)
+        courseViewModel = ViewModelProvider(requireActivity()).get(CourseViewModel::class.java)
 
         view.ac_add_course_btn.setOnClickListener {
             insertDataToDatabase()

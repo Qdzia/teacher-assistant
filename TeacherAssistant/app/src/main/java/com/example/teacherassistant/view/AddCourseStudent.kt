@@ -15,8 +15,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.teacherassistant.AppState
 import com.example.teacherassistant.R
 import com.example.teacherassistant.model.Course
+import com.example.teacherassistant.model.Participant
 import com.example.teacherassistant.view.adapter.StudentSelectionAdapter
 import com.example.teacherassistant.view_model.CourseViewModel
+import com.example.teacherassistant.view_model.ParticipantViewModel
 import com.example.teacherassistant.view_model.StudentViewModel
 import kotlinx.android.synthetic.main.fr_add_course_student.view.*
 
@@ -24,7 +26,7 @@ class AddCourseStudent : Fragment() {
 
     private lateinit var courseViewModel: CourseViewModel
     private lateinit var studentViewModel: StudentViewModel
-
+    private lateinit var participantViewModel: ParticipantViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

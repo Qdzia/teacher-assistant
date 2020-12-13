@@ -12,17 +12,17 @@ interface ParticipantDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun add(participant: Participant)
 
-    @Update
-    suspend fun update(participant: Participant)
-
     @Delete
     suspend fun delete(participant: Participant)
 
     @Query("SELECT * FROM student_table s JOIN participant_table p on s.id = p.student_id  WHERE course_id = :courseId")
     //@Query("SELECT * FROM participant_table")
-    fun readStudentsFromCourse(courseId : Int): LiveData<List<Student>>
+    fun readFromCourse(courseId : Int): LiveData<List<Student>>
 
     @Query("SELECT * FROM participant_table ORDER BY id ASC")
     fun readAll():  LiveData<List<Participant>>
+
+    @Query("DELETE FROM participant_table WHERE course_id = :courseId")
+    fun deleteAllFromCourse(courseId:Int)
 
 }
