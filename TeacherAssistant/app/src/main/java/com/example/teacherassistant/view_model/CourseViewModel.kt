@@ -16,6 +16,7 @@ import kotlinx.coroutines.launch
 class CourseViewModel(application: Application): AndroidViewModel(application) {
 
     val readAllCourses: LiveData<List<Course>>
+    val readAllParticipant:  LiveData<List<Participant>>
     private val repository: CourseRepository
 
     init {
@@ -23,6 +24,7 @@ class CourseViewModel(application: Application): AndroidViewModel(application) {
         val participantDao = AppDatabase.getDatabase(application).participantDao()
         repository = CourseRepository(courseDao,participantDao)
         readAllCourses = repository.readAllCourses
+        readAllParticipant = repository.readAllParticipant
     }
 
     fun addCourse(course: Course){
@@ -61,5 +63,11 @@ class CourseViewModel(application: Application): AndroidViewModel(application) {
     fun readParticipantFromCourse(course:Course): LiveData<List<Student>> {
         return repository.readParticipantFromCourse(course)
     }
+
+//    fun deleteAllParticipantFromCourse(courseId:Int){
+//        viewModelScope.launch(Dispatchers.IO) {
+//            repository.deleteParticipant(courseId)
+//        }
+//    }
 
 }

@@ -1,6 +1,7 @@
 package com.example.teacherassistant.view
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -34,7 +35,7 @@ class CourseList : Fragment() {
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
         // UserViewModel
-        courseViewModel = ViewModelProvider(this).get(CourseViewModel::class.java)
+        courseViewModel = ViewModelProvider(requireActivity()).get(CourseViewModel::class.java)
         courseViewModel.readAllCourses.observe(viewLifecycleOwner, Observer { course ->
             adapter.setData(course)
         })
@@ -42,6 +43,7 @@ class CourseList : Fragment() {
         view.cl_to_add_course.setOnClickListener {
             findNavController().navigate(R.id.action_courseList_to_addCourse)
         }
+
 
 
         return view

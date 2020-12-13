@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -25,7 +26,6 @@ import kotlinx.android.synthetic.main.fr_add_course.view.*
 class AddCourse : Fragment() {
 
     private lateinit var courseViewModel: CourseViewModel
-    private lateinit var studentViewModel: StudentViewModel
 
 
     override fun onCreateView(
@@ -36,12 +36,8 @@ class AddCourse : Fragment() {
 
         courseViewModel = ViewModelProvider(this).get(CourseViewModel::class.java)
 
-        attachStudentRecycleView(view)
-
         view.ac_add_course_btn.setOnClickListener {
-            //insertDataToDatabase()
-            //Toast.makeText(requireContext(), " Test", Toast.LENGTH_LONG).show()
-            insertParticipants("Logic")
+            insertDataToDatabase()
         }
 
         return view
@@ -53,7 +49,6 @@ class AddCourse : Fragment() {
         if(inputCheck(courseName)){
             val course = Course(0,courseName)
             courseViewModel.addCourse(course)
-            insertParticipants(courseName)
             Toast.makeText(requireContext(), "Successfully added!", Toast.LENGTH_LONG).show()
 
             findNavController().navigate(R.id.action_addCourse_to_courseList)
@@ -66,26 +61,4 @@ class AddCourse : Fragment() {
         return !(TextUtils.isEmpty(name))
     }
 
-    private fun attachStudentRecycleView(view: View){
-
-        // Recyclerview
-        val adapter = StudentSelectionAdapter()
-        val recyclerView = view.ac_students_rv
-        recyclerView.adapter = adapter
-        recyclerView.layoutManager = LinearLayoutManager(requireContext())
-
-        // UserViewModel
-        studentViewModel = ViewModelProvider(this).get(StudentViewModel::class.java)
-        studentViewModel.readAllData.observe(viewLifecycleOwner, Observer { student ->
-            adapter.setData(student)
-        })
-    }
-
-    private fun insertParticipants(courseName: String){
-
-        val course :Course  = courseViewModel.getCourseByName(courseName)
-        Log.e("Course Test"," ${course.courseName}")
-        Toast.makeText(requireContext(), "${courseName} + ${courseName}", Toast.LENGTH_LONG).show()
-        //courseViewModel.addStudentsToCourse(AppState.studentsToAdd,course)
-    }
 }

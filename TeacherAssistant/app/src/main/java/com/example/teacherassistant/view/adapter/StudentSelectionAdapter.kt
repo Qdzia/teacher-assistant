@@ -51,7 +51,6 @@ class StudentSelectionAdapter: RecyclerView.Adapter<StudentSelectionAdapter.MyVi
 
     fun selectItem(view: View,student:Student){
 
-
         var color = Color.TRANSPARENT
         val background: Drawable = view.background
         if (background is ColorDrawable) color = background.color

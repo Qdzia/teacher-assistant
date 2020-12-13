@@ -12,6 +12,7 @@ class CourseRepository(private val courseDao: CourseDao,
                        private val participantDao: ParticipantDao) {
 
     val readAllCourses: LiveData<List<Course>> = courseDao.readAll()
+    val readAllParticipant:  LiveData<List<Participant>> = participantDao.readAll()
 
     suspend fun addCourse(course: Course){
         courseDao.add(course)
@@ -41,5 +42,7 @@ class CourseRepository(private val courseDao: CourseDao,
         val list = courseDao.readAll()
         return list.value?.get(0)
     }
+
+
 
 }

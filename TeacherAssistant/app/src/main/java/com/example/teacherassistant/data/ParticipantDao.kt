@@ -22,5 +22,7 @@ interface ParticipantDao {
     //@Query("SELECT * FROM participant_table")
     fun readStudentsFromCourse(courseId : Int): LiveData<List<Student>>
 
+    @Query("SELECT * FROM participant_table ORDER BY id ASC")
+    fun readAll():  LiveData<List<Participant>>
 
 }
