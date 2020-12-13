@@ -12,49 +12,50 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.teacherassistant.AppState
 import com.example.teacherassistant.R
+import com.example.teacherassistant.model.Course
 import com.example.teacherassistant.model.Student
-import com.example.teacherassistant.view_model.StudentViewModel
-import kotlinx.android.synthetic.main.fr_edit_student.*
-import kotlinx.android.synthetic.main.fr_edit_student.view.*
+import com.example.teacherassistant.view_model.CourseViewModel
+import kotlinx.android.synthetic.main.fr_edit_course.*
+import kotlinx.android.synthetic.main.fr_edit_course.view.*
 
-class EditStudent : Fragment() {
 
-    private lateinit var studentViewModel: StudentViewModel
+class EditCourse : Fragment() {
+
+    private lateinit var courseViewModel: CourseViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fr_edit_student, container, false)
+        val view = inflater.inflate(R.layout.fr_edit_course, container, false)
 
-        studentViewModel = ViewModelProvider(requireActivity()).get(StudentViewModel::class.java)
+        courseViewModel = ViewModelProvider(requireActivity()).get(CourseViewModel::class.java)
 
-        view.es_first_name_et.setText(AppState.activeStudent.firstName)
-        view.es_last_name_et.setText(AppState.activeStudent.lastName)
+        view.ec_course_name_et.setText(AppState.activeCourse.courseName)
 
-        view.es_delete_student_btn.setOnClickListener{
+        view.ec_delete_course_btn.setOnClickListener{
             deleteUser()
         }
-        view.es_update_student_btn.setOnClickListener{
+        view.ec_update_course_btn.setOnClickListener{
             updateItem()
         }
-        // Inflate the layout for this fragment
+
         return view
     }
 
     private fun deleteUser() {
         val builder = AlertDialog.Builder(requireContext())
         builder.setPositiveButton("Yes") { _, _ ->
-            studentViewModel.deleteStudent(AppState.activeStudent)
+            courseViewModel.deleteCourse(AppState.activeCourse)
             Toast.makeText(
                 requireContext(),
-                "Successfully removed: ${AppState.activeStudent.firstName}",
+                "Successfully removed: ${AppState.updateStudent.firstName}",
                 Toast.LENGTH_SHORT).show()
-            findNavController().navigate(R.id.action_editStudent_to_studentList)
+            findNavController().navigate(R.id.action_editCourse_to_courseList)
         }
         builder.setNegativeButton("No") { _, _ -> }
-        builder.setTitle("Delete ${AppState.activeStudent.firstName} ${AppState.activeStudent.lastName}?")
-        builder.setMessage("Are you sure you want to delete ${AppState.activeStudent.firstName}?")
+        builder.setTitle("Delete ${AppState.updateStudent.firstName} ${AppState.updateStudent.lastName}?")
+        builder.setMessage("Are you sure you want to delete ${AppState.updateStudent.firstName}?")
         builder.create().show()
     }
 
@@ -63,20 +64,22 @@ class EditStudent : Fragment() {
     }
 
     private fun updateItem() {
-        val firstName = es_first_name_et.text.toString()
-        val lastName = es_last_name_et.text.toString()
+        val courseName = ec_course_name_et.text.toString()
 
-        if (inputCheck(firstName, lastName)) {
+        if (courseName.isNotEmpty()) {
             // Create User Object
-            val updatedUser = Student(AppState.activeStudent.id, firstName, lastName)
+            val course = Course(AppState.activeCourse.id,courseName)
+            AppState.activeCourse = course
             // Update Current User
-            studentViewModel.updateStudent(updatedUser)
+            courseViewModel.updateCourse(course)
             Toast.makeText(requireContext(), "Updated Successfully!", Toast.LENGTH_SHORT).show()
             // Navigate Back
-            findNavController().navigate(R.id.action_editStudent_to_studentList)
+            findNavController().navigate(R.id.action_editCourse_to_courseStudent)
         } else {
             Toast.makeText(requireContext(), "Please fill out all fields.", Toast.LENGTH_SHORT)
                 .show()
         }
     }
+
+
 }

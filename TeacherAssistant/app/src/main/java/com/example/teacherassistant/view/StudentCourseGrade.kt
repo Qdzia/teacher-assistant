@@ -8,35 +8,35 @@ import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.teacherassistant.AppState
 import com.example.teacherassistant.R
 import com.example.teacherassistant.view.adapter.GradeRaportAdapter
-import com.example.teacherassistant.view_model.StudentViewModel
-import kotlinx.android.synthetic.main.fr_report.view.*
+import com.example.teacherassistant.view_model.GradeViewModel
+import kotlinx.android.synthetic.main.fr_student_course_grade.view.*
 
-class Report : Fragment() {
+class StudentCourseGrade : Fragment() {
 
-    private lateinit var studentViewModel: StudentViewModel
+    private lateinit var gradeViewModel: GradeViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fr_report, container, false)
+        val view =  inflater.inflate(R.layout.fr_student_course_grade, container, false)
         // Recyclerview
         val adapter = GradeRaportAdapter()
-        val recyclerView = view.r_grades_rv
+        val recyclerView = view.scg_grades_rv
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
         // UserViewModel
-        studentViewModel = ViewModelProvider(requireActivity()).get(StudentViewModel::class.java)
-        studentViewModel.readAllGrades.observe(viewLifecycleOwner, Observer { grade ->
+        gradeViewModel = ViewModelProvider(requireActivity()).get(GradeViewModel::class.java)
+        gradeViewModel.readStudentCourseGrades(AppState.activeStudent,AppState.activeCourse)
+            .observe(viewLifecycleOwner, Observer { grade ->
             adapter.setData(grade)
         })
 
-
         return view
     }
-
 
 }

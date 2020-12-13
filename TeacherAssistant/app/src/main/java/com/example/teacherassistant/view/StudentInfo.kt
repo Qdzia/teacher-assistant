@@ -8,18 +8,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.teacherassistant.AppState
 import com.example.teacherassistant.R
 import com.example.teacherassistant.view.adapter.CourseListAdapter
-import com.example.teacherassistant.view.adapter.StudentListAdapter
 import com.example.teacherassistant.view_model.CourseViewModel
-import com.example.teacherassistant.view_model.StudentViewModel
-import kotlinx.android.synthetic.main.fr_course_list.view.*
-import kotlinx.android.synthetic.main.fr_student_list.view.*
+import kotlinx.android.synthetic.main.fr_student_info.view.*
 
-class CourseList : Fragment() {
+class StudentInfo : Fragment() {
 
     private lateinit var courseViewModel: CourseViewModel
 
@@ -27,13 +23,14 @@ class CourseList : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view  = inflater.inflate(R.layout.fr_course_list, container, false)
+        val view = inflater.inflate(R.layout.fr_student_info, container, false)
 
-        AppState.isCourseList = true
+        AppState.isCourseList = false
 
+        view.si_student_name_tv.text = "${AppState.activeStudent.firstName} ${AppState.activeStudent.lastName}"
         // Recyclerview
         val adapter = CourseListAdapter()
-        val recyclerView = view.cl_courses_rv
+        val recyclerView = view.si_courses_rv
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
@@ -43,12 +40,7 @@ class CourseList : Fragment() {
             adapter.setData(course)
         })
 
-        view.cl_to_add_course.setOnClickListener {
-            findNavController().navigate(R.id.action_courseList_to_addCourse)
-        }
-
-
-
         return view
     }
+
 }

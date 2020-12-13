@@ -16,6 +16,21 @@
     <string name="as_last_name">Last Name</string>
     <string name="as_add">Add</string>
 
+    <!--Add Course-->
+    <string name="ac_course_name">Course Name</string>
+    <string name="ac_add">Add</string>
+
+    <!--Row Student Grade-->
+    <string name="row_sg_grades">Grades: </string>
+    <string name="row_sg_avrage">Avrage: </string>
+
+    <!--Mark Student-->
+    <string name="ms_grades">Grade: </string>
+    <string name="ms_desc">Description: </string>
+    <string name="ms_btn">Submit</string>
+
+    <!--Add Course Student-->
+    <string name="acs_add_btn">Add</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 

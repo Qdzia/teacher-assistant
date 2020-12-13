@@ -26,7 +26,7 @@ class AddStudent : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fr_add_student, container, false)
 
-        studentViewModel = ViewModelProvider(this).get(StudentViewModel::class.java)
+        studentViewModel = ViewModelProvider(requireActivity()).get(StudentViewModel::class.java)
 
         view.as_add_student_btn.setOnClickListener {
             insertDataToDatabase()

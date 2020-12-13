@@ -1,20 +1,17 @@
 package com.example.teacherassistant.view.adapter
 
-import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.FragmentTransaction
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.teacherassistant.AppState
 import com.example.teacherassistant.R
+import com.example.teacherassistant.model.Participant
 import com.example.teacherassistant.model.Student
-import com.example.teacherassistant.view.AddStudent
-import kotlinx.android.synthetic.main.row_student.view.*
+import kotlinx.android.synthetic.main.row_student_grade.view.*
 
-
-class StudentListAdapter: RecyclerView.Adapter<StudentListAdapter.MyViewHolder>() {
+class StudentGradeAdapter: RecyclerView.Adapter<StudentGradeAdapter.MyViewHolder>() {
 
     private var studentList = emptyList<Student>()
 
@@ -23,7 +20,7 @@ class StudentListAdapter: RecyclerView.Adapter<StudentListAdapter.MyViewHolder>(
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         return MyViewHolder(
             LayoutInflater.from(parent.context).inflate(
-                R.layout.row_student,
+                R.layout.row_student_grade,
                 parent,
                 false
             )
@@ -36,13 +33,12 @@ class StudentListAdapter: RecyclerView.Adapter<StudentListAdapter.MyViewHolder>(
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val currentItem = studentList[position]
-        holder.itemView.row_s_id_tv.text = currentItem.id.toString()
-        holder.itemView.row_s_first_name_tv.text = currentItem.firstName
-        holder.itemView.row_s_last_name_tv.text = currentItem.lastName
+        holder.itemView.row_sg_first_name.text = currentItem.firstName
+        holder.itemView.row_sg_last_name.text = currentItem.lastName
 
-        holder.itemView.row_s_layout.setOnClickListener {
+        holder.itemView.row_sg_layout.setOnClickListener {
             AppState.activeStudent = currentItem
-            holder.itemView.findNavController().navigate(R.id.action_studentList_to_studentInfo)
+            holder.itemView.findNavController().navigate(R.id.action_courseStudent_to_markStudent)
         }
     }
 
