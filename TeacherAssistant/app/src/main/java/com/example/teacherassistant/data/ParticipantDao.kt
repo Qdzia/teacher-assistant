@@ -15,7 +15,7 @@ interface ParticipantDao {
     @Delete
     suspend fun delete(participant: Participant)
 
-    @Query("SELECT * FROM student_table s JOIN participant_table p on s.id = p.student_id  WHERE course_id = :courseId")
+    @Query("SELECT s.id, s.firstName,s.lastName  FROM student_table s JOIN participant_table p on s.id = p.student_id  WHERE course_id = :courseId")
     //@Query("SELECT * FROM participant_table")
     fun readFromCourse(courseId : Int): LiveData<List<Student>>
 

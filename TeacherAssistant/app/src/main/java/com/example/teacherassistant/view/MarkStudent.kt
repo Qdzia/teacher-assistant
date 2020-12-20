@@ -13,14 +13,14 @@ import androidx.navigation.fragment.findNavController
 import com.example.teacherassistant.AppState
 import com.example.teacherassistant.R
 import com.example.teacherassistant.model.Grade
-import com.example.teacherassistant.view_model.StudentViewModel
+import com.example.teacherassistant.view_model.GradeViewModel
 import kotlinx.android.synthetic.main.fr_mark_student.*
 import kotlinx.android.synthetic.main.fr_mark_student.view.*
 import java.time.LocalDateTime
 
 class MarkStudent : Fragment() {
 
-    private lateinit var studentViewModel: StudentViewModel
+    private lateinit var gradeViewModel: GradeViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,12 +30,10 @@ class MarkStudent : Fragment() {
 
         view.ms_student_info_tv.text = "${AppState.activeStudent.firstName} ${AppState.activeStudent.lastName}"
 
-        studentViewModel = ViewModelProvider(requireActivity()).get(StudentViewModel::class.java)
+        gradeViewModel = ViewModelProvider(requireActivity()).get(GradeViewModel::class.java)
 
         view.ms_submit_btn.setOnClickListener {
             insertDataToDatabase()
-
-            //Log.e("Debug:","${AppState.activeStudent.firstName} ${AppState.activeCourse.courseName}")
         }
 
         return view
@@ -49,10 +47,8 @@ class MarkStudent : Fragment() {
 
 
         if(inputCheck(grade,desc)){
-            val gradeObj = Grade(0,courseId, studentId, grade, desc, LocalDateTime.now().toString()
-            )
-            Log.e("Debug:","s: ${courseId} c: ${studentId}")
-            //studentViewModel.addGrade(gradeObj)
+            val gradeObj = Grade(0,courseId, studentId, grade, desc, LocalDateTime.now().toString())
+            gradeViewModel.addGrade(gradeObj)
             Toast.makeText(requireContext(), "Successfully added!", Toast.LENGTH_LONG).show()
 
             findNavController().navigate(R.id.action_markStudent_to_courseStudent)
