@@ -9,6 +9,7 @@ import com.example.teacherassistant.data.AppDatabase
 import com.example.teacherassistant.model.Course
 import com.example.teacherassistant.model.Participant
 import com.example.teacherassistant.model.Student
+import com.example.teacherassistant.model.StudentLastGrade
 import com.example.teacherassistant.repository.ParticipantRepsitory
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -36,6 +37,9 @@ class ParticipantViewModel(application: Application): AndroidViewModel(applicati
 
     fun readParticipantFromCourse(course: Course): LiveData<List<Student>> {
         return repository.readFromCourse(course.id)
+    }
+    fun readFromCourseWithGrade(course: Course): LiveData<List<StudentLastGrade>> {
+        return repository.readFromCourseWithGrade(course.id)
     }
 
     fun deleteAllParticipantFromCourse(courseId:Int){

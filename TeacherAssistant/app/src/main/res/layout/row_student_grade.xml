@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@drawable/recycler_item_bg"
+    android:layout_marginBottom="10dp"
     android:id="@+id/row_sg_layout">
 
     <TextView
@@ -13,6 +15,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:text="First Name"
+        android:textColor="@color/colorTextMain"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -24,6 +27,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="10dp"
         android:text="Last Name"
+        android:textColor="@color/colorTextMain"
         android:textSize="24sp"
         app:layout_constraintStart_toEndOf="@+id/row_sg_first_name"
         app:layout_constraintTop_toTopOf="parent" />
@@ -35,6 +39,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
         android:text="Avrage"
+        android:textColor="@color/colorPrimary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -45,6 +50,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
         android:text="@string/row_sg_avrage"
+        android:textColor="@color/colorPrimary"
         app:layout_constraintEnd_toStartOf="@+id/row_sg_avrage"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -56,6 +62,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
         android:text="@string/row_sg_grades"
+        android:textColor="@color/colorTextNormal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/row_sg_first_name" />
@@ -67,6 +74,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:text="Grades"
+        android:textColor="@color/colorTextNormal"
         app:layout_constraintStart_toEndOf="@+id/textView6"
         app:layout_constraintTop_toBottomOf="@+id/row_sg_last_name" />
 </androidx.constraintlayout.widget.ConstraintLayout>

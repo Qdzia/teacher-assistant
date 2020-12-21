@@ -3,12 +3,14 @@ package com.example.teacherassistant.view.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import com.example.teacherassistant.R
 import com.example.teacherassistant.model.Grade
+import com.example.teacherassistant.view_model.GradeViewModel
 import kotlinx.android.synthetic.main.row_grade.view.*
 
-class GradeAdapter: RecyclerView.Adapter<GradeAdapter.MyViewHolder>() {
+class GradeAdapter(val gradeViewModel: GradeViewModel): RecyclerView.Adapter<GradeAdapter.MyViewHolder>() {
 
     private var gradeList = emptyList<Grade>()
 
@@ -31,11 +33,12 @@ class GradeAdapter: RecyclerView.Adapter<GradeAdapter.MyViewHolder>() {
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val currentItem = gradeList[position]
 
+
         holder.itemView.row_g_grade_tv.text = currentItem.grade.toString()
         holder.itemView.row_g_desc_tv.text = currentItem.description
 
-        holder.itemView.row_g_delete_btn.setOnClickListener{
-
+        holder.itemView.row_g_delete_img.setOnClickListener{
+            gradeViewModel.deleteGrade(currentItem)
         }
     }
 

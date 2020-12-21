@@ -31,6 +31,9 @@
         <action
             android:id="@+id/action_courseList_to_courseStudent"
             app:destination="@id/courseStudent" />
+        <action
+            android:id="@+id/action_courseList_to_welcomeScreen"
+            app:destination="@id/welcomeScreen" />
     </fragment>
     <fragment
         android:id="@+id/studentList"
@@ -46,12 +49,19 @@
         <action
             android:id="@+id/action_studentList_to_studentInfo"
             app:destination="@id/studentInfo" />
+        <action
+            android:id="@+id/action_studentList_to_welcomeScreen"
+            app:destination="@id/welcomeScreen" />
     </fragment>
     <fragment
         android:id="@+id/report"
         android:name="com.example.teacherassistant.view.Report"
         android:label="fr_report"
-        tools:layout="@layout/fr_report" />
+        tools:layout="@layout/fr_report" >
+        <action
+            android:id="@+id/action_report_to_welcomeScreen"
+            app:destination="@id/welcomeScreen" />
+    </fragment>
     <fragment
         android:id="@+id/addStudent"
         android:name="com.example.teacherassistant.view.AddStudent"
@@ -93,6 +103,9 @@
         <action
             android:id="@+id/action_courseStudent_to_editCourse"
             app:destination="@id/editCourse" />
+        <action
+            android:id="@+id/action_courseStudent_to_courseList"
+            app:destination="@id/courseList" />
     </fragment>
     <fragment
         android:id="@+id/markStudent"
@@ -132,6 +145,9 @@
         <action
             android:id="@+id/action_studentInfo_to_studentCourseGrade"
             app:destination="@id/studentCourseGrade" />
+        <action
+            android:id="@+id/action_studentInfo_to_studentList"
+            app:destination="@id/studentList" />
     </fragment>
     <fragment
         android:id="@+id/studentCourseGrade"

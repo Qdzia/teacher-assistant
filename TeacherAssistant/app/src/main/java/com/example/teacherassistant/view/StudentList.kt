@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.teacherassistant.R
 import com.example.teacherassistant.view.adapter.StudentListAdapter
 import com.example.teacherassistant.view_model.StudentViewModel
+import kotlinx.android.synthetic.main.fr_course_list.view.*
 import kotlinx.android.synthetic.main.fr_student_list.view.*
 
 class StudentList : Fragment() {
@@ -38,6 +39,9 @@ class StudentList : Fragment() {
 
         view.sl_to_add_student.setOnClickListener {
             findNavController().navigate(R.id.action_studentList_to_addStudent)
+        }
+        view.sl_back_img.setOnClickListener{
+            findNavController().navigate(R.id.action_studentList_to_welcomeScreen)
         }
 
         return view;

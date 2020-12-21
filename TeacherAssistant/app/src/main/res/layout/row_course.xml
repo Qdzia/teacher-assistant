@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@drawable/recycler_item_bg"
+    android:layout_marginBottom="10dp"
     android:id="@+id/row_c_layout">
 
     <TextView
@@ -14,6 +16,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
         android:text="TextView"
+        android:textColor="@color/colorTextNormal"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -28,6 +31,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
         android:text="TextView"
+        android:textColor="@color/colorTextMain"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/row_c_id_tv"

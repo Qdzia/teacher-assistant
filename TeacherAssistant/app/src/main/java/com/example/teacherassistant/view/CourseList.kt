@@ -46,6 +46,9 @@ class CourseList : Fragment() {
         view.cl_to_add_course.setOnClickListener {
             findNavController().navigate(R.id.action_courseList_to_addCourse)
         }
+        view.cl_back_img.setOnClickListener{
+            findNavController().navigate(R.id.action_courseList_to_welcomeScreen)
+        }
 
 
 

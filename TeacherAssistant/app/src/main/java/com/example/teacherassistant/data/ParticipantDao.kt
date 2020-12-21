@@ -2,9 +2,7 @@ package com.example.teacherassistant.data
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
-import com.example.teacherassistant.model.Course
-import com.example.teacherassistant.model.Participant
-import com.example.teacherassistant.model.Student
+import com.example.teacherassistant.model.*
 
 @Dao
 interface ParticipantDao {
@@ -16,7 +14,6 @@ interface ParticipantDao {
     suspend fun delete(participant: Participant)
 
     @Query("SELECT s.id, s.firstName,s.lastName  FROM student_table s JOIN participant_table p on s.id = p.student_id  WHERE course_id = :courseId")
-    //@Query("SELECT * FROM participant_table")
     fun readFromCourse(courseId : Int): LiveData<List<Student>>
 
     @Query("SELECT * FROM participant_table ORDER BY id ASC")
@@ -25,4 +22,6 @@ interface ParticipantDao {
     @Query("DELETE FROM participant_table WHERE course_id = :courseId")
     fun deleteAllFromCourse(courseId:Int)
 
+    @Query("SELECT s.id as s_id, s.firstName as s_firstName,s.lastName as s_lastName, g.id,g.student_id,g.course_id,g.grade,g.description,g.date FROM student_table s JOIN participant_table p on s.id = p.student_id LEFT JOIN grade_table g on g.course_id = :courseId  WHERE p.course_id = :courseId GROUP BY  s.id ORDER BY g.date   "  )
+    fun readFromCourseWithGrade(courseId : Int): LiveData<List<StudentLastGrade>>
 }

@@ -8,11 +8,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.teacherassistant.AppState
 import com.example.teacherassistant.R
 import com.example.teacherassistant.view.adapter.CourseListAdapter
 import com.example.teacherassistant.view_model.CourseViewModel
+import kotlinx.android.synthetic.main.fr_course_list.view.*
 import kotlinx.android.synthetic.main.fr_student_info.view.*
 
 class StudentInfo : Fragment() {
@@ -39,6 +41,10 @@ class StudentInfo : Fragment() {
         courseViewModel.readAllCourses.observe(viewLifecycleOwner, Observer { course ->
             adapter.setData(course)
         })
+
+        view.si_back_img.setOnClickListener{
+            findNavController().navigate(R.id.action_studentInfo_to_studentList)
+        }
 
         return view
     }

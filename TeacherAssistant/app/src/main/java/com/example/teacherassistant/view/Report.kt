@@ -7,11 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.teacherassistant.R
 import com.example.teacherassistant.view.adapter.GradeRaportAdapter
 import com.example.teacherassistant.view_model.GradeViewModel
 import com.example.teacherassistant.view_model.StudentViewModel
+import kotlinx.android.synthetic.main.fr_course_list.view.*
 import kotlinx.android.synthetic.main.fr_report.view.*
 
 class Report : Fragment() {
@@ -35,7 +37,9 @@ class Report : Fragment() {
             adapter.setData(grade)
         })
 
-
+        view.r_back_img.setOnClickListener {
+                findNavController().navigate(R.id.action_report_to_welcomeScreen)
+        }
         return view
     }
 

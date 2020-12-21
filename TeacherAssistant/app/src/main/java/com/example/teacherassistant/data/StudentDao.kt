@@ -2,6 +2,7 @@ package com.example.teacherassistant.data
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
+import com.example.teacherassistant.model.GradeFull
 import com.example.teacherassistant.model.Student
 
 @Dao

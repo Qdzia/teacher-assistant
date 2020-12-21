@@ -11,6 +11,12 @@
     <string name="s_title">Students</string>
     <string name="s_to_add_student">Add new student</string>
 
+    <!--Raport-->
+    <string name="r_title">Raport</string>
+
+    <!--Course List-->
+    <string name="cl_title">Your courses</string>
+
     <!--Add Student-->
     <string name="as_first_name">First Name</string>
     <string name="as_last_name">Last Name</string>
@@ -21,7 +27,7 @@
     <string name="ac_add">Add</string>
 
     <!--Row Student Grade-->
-    <string name="row_sg_grades">Grades: </string>
+    <string name="row_sg_grades">Last Grades: </string>
     <string name="row_sg_avrage">Avrage: </string>
 
     <!--Mark Student-->

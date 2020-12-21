@@ -30,6 +30,12 @@ class GradeViewModel(application: Application): AndroidViewModel(application) {
         }
     }
 
+    fun deleteGrade(grade: Grade){
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.deleteGrade(grade)
+        }
+    }
+
     fun readStudentCourseGrades(student : Student,course: Course): LiveData<List<Grade>> {
         return repository.readFromStudentCourse(student.id,course.id)
     }

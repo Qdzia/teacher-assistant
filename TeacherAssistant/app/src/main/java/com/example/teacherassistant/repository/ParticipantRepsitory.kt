@@ -6,6 +6,7 @@ import com.example.teacherassistant.data.ParticipantDao
 import com.example.teacherassistant.model.Course
 import com.example.teacherassistant.model.Participant
 import com.example.teacherassistant.model.Student
+import com.example.teacherassistant.model.StudentLastGrade
 
 
 class ParticipantRepsitory(private val participantDao: ParticipantDao) {
@@ -22,6 +23,9 @@ class ParticipantRepsitory(private val participantDao: ParticipantDao) {
 
     fun readFromCourse(courseId: Int) : LiveData<List<Student>> {
         return participantDao.readFromCourse(courseId)
+    }
+    fun readFromCourseWithGrade(courseId: Int) : LiveData<List<StudentLastGrade>> {
+        return participantDao.readFromCourseWithGrade(courseId)
     }
 
     suspend fun deleteAllFromCourse(courseId: Int){

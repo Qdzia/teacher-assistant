@@ -5,6 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
     tools:context=".view.AddCourse"
     android:padding="24dp">
 
@@ -16,6 +17,7 @@
         android:ems="10"
         android:hint="@string/ac_course_name"
         android:inputType="textPersonName"
+        android:textColor="@color/colorTextNormal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,6 +26,7 @@
 
     <Button
         android:id="@+id/ac_add_course_btn"
+        style="@style/AppTheme.MainButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"

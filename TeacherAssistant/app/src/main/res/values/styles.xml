@@ -7,4 +7,14 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="AppTheme.MainButton" parent="Widget.AppCompat.Button.Colored">
+        <item name="android:textColor">@color/colorTextActive</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="backgroundTint">@color/colorPrimary</item>
+    </style>
+
+    <style name="AppTheme.Title" parent="@android:style/TextAppearance">
+        <item name="android:textColor">@color/colorTextMain</item>
+        <item name="android:textSize">36sp</item>
+    </style>
 </resources>

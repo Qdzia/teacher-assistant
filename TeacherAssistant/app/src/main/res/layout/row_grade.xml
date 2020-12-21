@@ -3,6 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@drawable/recycler_item_bg"
+    android:layout_marginBottom="10dp"
     android:layout_height="wrap_content">
 
     <TextView
@@ -13,6 +15,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
         android:text="5"
+        android:textColor="@color/colorTextMain"
         android:textSize="28sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,20 +27,20 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:text="TextView"
+        android:textColor="@color/colorTextMain"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/row_g_grade_tv"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/row_g_delete_btn"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_marginEnd="5dp"
-        android:drawableRight="@drawable/ic_delete"
-        android:gravity="center"
+    <ImageView
+        android:id="@+id/row_g_delete_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_delete" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

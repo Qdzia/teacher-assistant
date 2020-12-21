@@ -10,6 +10,7 @@ import com.example.teacherassistant.AppState
 import com.example.teacherassistant.R
 import com.example.teacherassistant.model.Participant
 import com.example.teacherassistant.model.Student
+import com.example.teacherassistant.model.StudentLastGrade
 import kotlinx.android.synthetic.main.row_student_grade.view.*
 
 class StudentGradeAdapter: RecyclerView.Adapter<StudentGradeAdapter.MyViewHolder>() {
@@ -36,8 +37,12 @@ class StudentGradeAdapter: RecyclerView.Adapter<StudentGradeAdapter.MyViewHolder
         val currentItem = studentList[position]
         holder.itemView.row_sg_first_name.text = currentItem.firstName
         holder.itemView.row_sg_last_name.text = currentItem.lastName
-        holder.itemView.row_sg_grades.text = currentItem.id.toString()
 
+//        if(currentItem.grade != null){
+//            holder.itemView.row_sg_grades.text = "Have Grade " + currentItem.grade?.grade.toString()
+//        } else {
+//            holder.itemView.row_sg_grades.text = "Needs Grade "
+//        }
 
         holder.itemView.row_sg_layout.setOnClickListener {
             AppState.activeStudent = currentItem

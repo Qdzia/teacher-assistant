@@ -24,13 +24,14 @@ class StudentCourseGrade : Fragment() {
     ): View? {
         val view =  inflater.inflate(R.layout.fr_student_course_grade, container, false)
         // Recyclerview
-        val adapter = GradeAdapter()
+        gradeViewModel = ViewModelProvider(requireActivity()).get(GradeViewModel::class.java)
+        val adapter = GradeAdapter(gradeViewModel)
         val recyclerView = view.scg_grades_rv
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
         // UserViewModel
-        gradeViewModel = ViewModelProvider(requireActivity()).get(GradeViewModel::class.java)
+
         gradeViewModel.readStudentCourseGrades(AppState.activeStudent,AppState.activeCourse)
             .observe(viewLifecycleOwner, Observer { grade ->
             adapter.setData(grade)

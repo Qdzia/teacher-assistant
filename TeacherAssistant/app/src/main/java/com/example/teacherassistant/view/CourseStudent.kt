@@ -52,6 +52,10 @@ class CourseStudent : Fragment() {
             findNavController().navigate(R.id.action_courseStudent_to_addCourseStudent)
         }
 
+        view.cs_back_img.setOnClickListener{
+            findNavController().navigate(R.id.action_courseStudent_to_courseList)
+        }
+
         return view
     }
 
