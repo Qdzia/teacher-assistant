@@ -26,7 +26,7 @@ class StudentList : Fragment() {
         val view = inflater.inflate(R.layout.fr_student_list, container, false)
 
         // Recyclerview
-        val adapter = StudentListAdapter()
+        val adapter = StudentListAdapter(R.id.action_studentList_to_studentInfo)
         val recyclerView = view.sl_students_rv
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext())

@@ -15,9 +15,10 @@ import com.example.teacherassistant.view.AddStudent
 import kotlinx.android.synthetic.main.row_student.view.*
 
 
-class StudentListAdapter: RecyclerView.Adapter<StudentListAdapter.MyViewHolder>() {
+class StudentListAdapter(location: Int): RecyclerView.Adapter<StudentListAdapter.MyViewHolder>() {
 
     private var studentList = emptyList<Student>()
+    private var moveToLocation = location;
 
     class MyViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {}
 
@@ -43,7 +44,8 @@ class StudentListAdapter: RecyclerView.Adapter<StudentListAdapter.MyViewHolder>(
 
         holder.itemView.row_s_layout.setOnClickListener {
             AppState.activeStudent = currentItem
-            holder.itemView.findNavController().navigate(R.id.action_studentList_to_studentInfo)
+            //holder.itemView.findNavController().navigate(R.id.action_studentList_to_studentInfo)
+            holder.itemView.findNavController().navigate(moveToLocation)
         }
     }
 

@@ -1,7 +1,6 @@
 package com.example.teacherassistant.view
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -12,12 +11,8 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.teacherassistant.AppState
 import com.example.teacherassistant.R
-import com.example.teacherassistant.model.Course
-import com.example.teacherassistant.view.adapter.StudentGradeAdapter
-import com.example.teacherassistant.view_model.CourseViewModel
+import com.example.teacherassistant.view.adapter.StudentListAdapter
 import com.example.teacherassistant.view_model.ParticipantViewModel
-import com.example.teacherassistant.view_model.StudentViewModel
-import kotlinx.android.synthetic.main.fr_course_list.view.*
 import kotlinx.android.synthetic.main.fr_course_student.view.*
 
 class CourseStudent : Fragment() {
@@ -31,8 +26,8 @@ class CourseStudent : Fragment() {
         val view = inflater.inflate(R.layout.fr_course_student, container, false)
 
         // Recyclerview
-        val adapter = StudentGradeAdapter()
-        val recyclerView = view.cs_student_grade_rv
+        val adapter = StudentListAdapter(R.id.action_courseStudent_to_markStudent)
+        val recyclerView = view.cs_course_student_rv
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
@@ -54,6 +49,10 @@ class CourseStudent : Fragment() {
 
         view.cs_back_img.setOnClickListener{
             findNavController().navigate(R.id.action_courseStudent_to_courseList)
+        }
+
+        view.cs_ranking_btn.setOnClickListener{
+            findNavController().navigate(R.id.action_courseStudent_to_ranking)
         }
 
         return view

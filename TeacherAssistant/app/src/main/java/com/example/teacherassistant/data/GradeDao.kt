@@ -26,4 +26,5 @@ interface GradeDao {
 
     @Query("SELECT s.id as s_id, s.firstName as s_firstName, s.lastName as s_lastName, g.id, g.course_id, g.student_id, g.date, g.description, g.grade, c.courseName as c_courseName, c.id as c_id  FROM grade_table as g join student_table as s on g.student_id = s.id join course_table as c on g.course_id = c.id WHERE g.date > date('now','-1 day')")
     fun readFullTodayGrades():LiveData<List<GradeFull>>
+
 }

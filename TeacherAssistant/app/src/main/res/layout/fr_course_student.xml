@@ -9,7 +9,7 @@ tools:context=".view.CourseStudent">
 
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/cs_student_grade_rv"
+        android:id="@+id/cs_course_student_rv"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="20dp"
@@ -44,6 +44,18 @@ tools:context=".view.CourseStudent">
         android:src="@drawable/ic_edit"
         android:tint="#FFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/cs_to_add_course_student"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/cs_ranking_btn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="24dp"
+        android:clickable="true"
+        android:src="@drawable/ic_ranking"
+        android:tint="#FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/cs_edit_course_btn"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView

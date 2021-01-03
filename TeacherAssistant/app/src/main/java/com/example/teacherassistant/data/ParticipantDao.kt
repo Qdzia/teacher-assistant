@@ -22,6 +22,6 @@ interface ParticipantDao {
     @Query("DELETE FROM participant_table WHERE course_id = :courseId")
     fun deleteAllFromCourse(courseId:Int)
 
-    @Query("SELECT s.id as s_id, s.firstName as s_firstName,s.lastName as s_lastName, g.id,g.student_id,g.course_id,g.grade,g.description,g.date FROM student_table s JOIN participant_table p on s.id = p.student_id LEFT JOIN grade_table g on g.course_id = :courseId  WHERE p.course_id = :courseId GROUP BY  s.id ORDER BY g.date   "  )
+    @Query("SELECT s.id as s_id, s.firstName as s_firstName,s.lastName as s_lastName, g.id,g.student_id,g.course_id,AVG(g.grade) as grade,g.description, MAX(g.date) as date FROM grade_table g JOIN student_table s on g.student_id = s.id WHERE g.course_id = :courseId GROUP BY s.id"  )
     fun readFromCourseWithGrade(courseId : Int): LiveData<List<StudentLastGrade>>
 }

@@ -106,6 +106,9 @@
         <action
             android:id="@+id/action_courseStudent_to_courseList"
             app:destination="@id/courseList" />
+        <action
+            android:id="@+id/action_courseStudent_to_ranking"
+            app:destination="@id/ranking" />
     </fragment>
     <fragment
         android:id="@+id/markStudent"
@@ -157,5 +160,14 @@
         <action
             android:id="@+id/action_studentCourseGrade_to_studentInfo"
             app:destination="@id/studentInfo" />
+    </fragment>
+    <fragment
+        android:id="@+id/ranking"
+        android:name="com.example.teacherassistant.view.Ranking"
+        android:label="fr_ranking"
+        tools:layout="@layout/fr_ranking" >
+        <action
+            android:id="@+id/action_ranking_to_courseStudent"
+            app:destination="@id/courseStudent" />
     </fragment>
 </navigation>

@@ -8,5 +8,5 @@ class StudentLastGrade (
     var student: Student,
 
     @Embedded
-    var grade: Grade?
+    var grade: Grade
 )
